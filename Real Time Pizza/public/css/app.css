@@ -1,0 +1,90 @@
+@import url(_variable.css);
+
+nav li a{
+    transition: var(--smooth);
+}
+
+nav li:last-child a{
+    background-color: var(--primary);
+}
+
+nav li:last-child a:hover{
+    background-color: var(--primary-hover);
+}
+
+nav li a:hover{
+    color: var(--primary);
+}
+
+.hero{
+    background-color: var(--secondary);
+}
+.btn-primary
+{
+    background-color: var(--primary);
+    transition: var(--smooth);
+}
+.btn-primary:hover
+{
+    background-color: var(--primary-hover);
+}
+.size
+{
+    background-color: var(--secondary);
+}
+
+.add-to-cart
+{
+    color: var(--primary);
+    border: solid 2px var(--primary);
+    transition: var(--smooth);
+} 
+.add-to-cart:hover
+{
+    color: var(--pure);
+    background-color: var(--primary);
+    border-color: var(--pure );
+} 
+
+.moving
+{
+    position: relative;
+    animation-name: motion;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+@keyframes motion {
+    0% 
+    {
+        /* transform-origin: center center; */
+        transform: rotate(0deg);
+        opacity: 0.1;
+    }
+    100% 
+    {
+        /* transform-origin: center center; */
+        transform: rotate(360deg);
+        opacity: 1;
+    } 
+}
+.cart
+{
+    background-color: var(--secondary);
+}
+.cart .amount
+{
+    color: var(--primary);
+}
+
+.login{
+    min-height: calc(100vh - 86px);
+    background-color: var(--secondary);
+}
+
+.login a{
+    color: var(--primary);
+    transition: var(--smooth);
+}
+.login a:hover{
+    color: var(--primary-hover);
+}

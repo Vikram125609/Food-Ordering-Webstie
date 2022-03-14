@@ -1,0 +1,65 @@
+<section class="cart py-16 ">
+    <div class="order container mx-auto w-1/2">
+        <div class="flex items-center border-b border-gray-300 pb-4">
+            <img src="public/img/cart-black.png " alt="">
+            <h1 class="font-bold ml-4 text-2xl">Order Summary</h1>
+        </div>
+        <div class="pizza-list pizzaList">
+            <!-- Here ejs code will come -->
+            <% let totalPrice=0%>
+            <% let totalQuantity=0%>
+                <% Datas.forEach(function(data){ %>
+                    <div class="flex items-center my-8">
+                        <img class="w-24" src="public/img/<%=data.image%>" alt="">
+                        <div class="flex-1 ml-4">
+                            <h1>
+                                <%=data.name%>
+                            </h1>
+                            <span class="uppercase">
+                                <%=data.size%>
+                            </span>
+                        </div>
+                        <span class="flex-1">1 Pcs</span>
+                        <span class="font-bold text-lg">$<%=data.price%></span>
+                        <%totalPrice+=data.price%>
+                        <%totalQuantity+=1%>
+                    </div>
+                    <% })%>
+        </div>
+    </div>
+    <hr>
+    <div class="text-right container w-1/2 mx-auto willDeletedOnEmptyCart py-4">
+        <div>
+            <span class="font-bold text-lg">Total Quantity :</span>
+            <span class="amount text-2xl font-bold"><%=totalQuantity%></span>
+            <span class="font-bold text-lg">Total Amount :</span>
+            <span class="amount text-2xl font-bold ml-2">$<%=totalPrice%></span>
+        </div>
+        <div>
+            <form action="/" method="post" class="mt-12">
+                <input class="border border-gray-400 p-2 w-1/2 mb-4" placeholder="Phone Number" type="text" name="Phone"
+                    id="">
+                <input class="border border-gray-400 p-2 w-1/2" placeholder="Address" type="text" name="Address" id="">
+                <div class="mt-6">
+                    <button class="btn-primary rounded-full px-6 py-2 text-white font-bold" type="submit">Order
+                        Now</button>
+                </div>
+            </form>
+        </div>
+        <!-- Will show this when the user is not logged in -->
+        <!-- <a href=""
+            class="py-2 mt-6 inline-block cursor-pointer btn-primary rounded-full px-6 text-white font-bold">Login
+            to continue</a> -->
+    </div>
+    <div class="empty-cart py-16">
+        <div class="container mx-auto text-center">
+            <h1 class="text-3xl font-bold mb-2">Cart Empty 🙁</h1>
+            <p class="text-lg mb-12 font-light text-gray-500">You probably haven't order a pizza yet. <br>
+                To order a pizza go to the home page
+            </p>
+            <img class="w-2/5 mx-auto" src="public/img/empty-cart.png" alt="">
+            <a class="inline-block py-2 px-6 rounded-full btn-primary text-white font-bold mt-12" href="/">Go Back</a>
+        </div>
+    </div>
+</section>
+<script src="../../public/js/clientCart.js"></script>
